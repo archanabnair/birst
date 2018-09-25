@@ -5,15 +5,9 @@
 #
 # Description: The script orchestrates the various activities in the data pipeline.
 #              The various pipeline activities include:
-#               1. Transfer the encrypted files (50 files) from MFT into a dated S3 archive directory
-#               2. Download the files from S3 archive to Local Staging
-#               3. Perform file count validation. Exit on Failure.
-#               4. Decrypt the files
-#               5. Rename the files
-#               6. Parse trailer record into load_control_file, strip trailer from file and transfer file to Birst pickup directory
-#               7. Execute the Birst Connect JNLP tasks to upload the files to Birst
-#               8. Process Data in Birst
-#               9. Notify users upon pipeline completion
+#               1. Execute the Birst Connect JNLP tasks to upload the files to Birst
+#               2. Process Data in Birst
+#               3. Notify users upon pipeline completion
 #                
 #*********************************************************************************************************************************
 
