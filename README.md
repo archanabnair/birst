@@ -7,7 +7,7 @@ The birst_upload_process.py script achieves the following functionality:
 
 The following modifications need to be made in order to re-use the code: 
 
-I. Open config_auth.ini and specify:
+I. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
    1. Current Working Directory, Log file location
    2. Birst Space details (URL, ServerURI, SpaceID, Processing groups, BirstConnect directory)
    3. Sender and Recipient information for Email Notifications
@@ -26,9 +26,10 @@ III. Set up Birst Connect.
 IV. Place the files to be uploaded in the directory referenced in the Birst Connect task. 
 
 V.  To run the program:
-    1. Copy birst_upload_process.py script into a local directory. 
-    2. Open Command Line and navigate to the folder containing the .py file. 
-    3. In the terminal, type "python birst_upload_process.py" and hit Enter. 
+   
+   1. Copy birst_upload_process.py script into a local directory. 
+   2. Open Command Line and navigate to the folder containing the .py file. 
+   3. In the terminal, type "python birst_upload_process.py" and hit Enter. 
     
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
 
