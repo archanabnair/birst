@@ -162,6 +162,13 @@ class automation_controller(object):
             else: 
                 print("Processing Successful! Check Birst load log for details")
                 logging.info("Processing Successful! Check Birst load log for details")
+                logging.info("Clearing Cache for space")
+                try:
+                    client.service.clearCacheInSpace(loginToken,spaceId)
+                except Exception as e:
+                    logging.info("Clear cache failed")
+                    logging.info(e)
+                logging.info("Completed Clearing Cache for space")
             client.service.Logout(loginToken)
             
             msg = (datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " Processing completed. Check processing log for status!")
