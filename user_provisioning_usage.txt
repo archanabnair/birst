@@ -1,0 +1,12 @@
+Use the same config file that is being used for Birst upload and Processing Python script. Modify the Birst sections.
+
+In Command prompt, navigate to the folder containing the Python script, and type:
+
+General syntax: python <script_name.py> <root_directory_with_config_file> <birst_command> <args>
+
+Examples:
+python user_deployment.py E:\\automation addUser abalachandran p@$$word example@example.com 
+python user_deployment.py E:\\automation addUserToSpace abalachandran y
+python user_deployment.py E:\\automation addUserToGroupInSpace TestGroup abalachandran
+python user_deployment.py E:\\automation addGroupToSpace TestGroup
+python user_deployment.py E:\\automation addAclToGroupInSpace TestGroup Visualizer
