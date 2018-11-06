@@ -327,33 +327,13 @@ class automation_controller(object):
                 logging.error('Unidentified/Unhandled exception occured. System Exiting with Status Code 1')
                 notify_email_msg='Unidentified/Unhandled exception occured. System Exiting with Status Code 1 during Birst processing of space:'+birst_space_name
                 self.notify_users(msgtype=notify_email_msg,attach='T',user_type='dev')
-                sys.exit(1)
+                return 1
 
 
             logging.info("Job Status Returned by getPublishingStatus function is %s",jobstatus) # Returns Complete/Failed/Running/None
             if jobstatus == 'Failed':
                 print("Processing failed. Check Birst load log for details")
                 logging.error("Status 'Failed' returned in job.getPublishingStatus")
-                for i in range(3):
-                    while True:
-                        if self.birst_status_poll(client,loginToken, publishToken)== 'Available':
-                            logging.info("getPublishingStatus method returned: %s",jobstatus)
-                            logging.info("Processing Successful! Check Birst load log for details")
-                            logging.info("Clearing Cache for space %s ",birst_space_name)
-                            client.service.clearCacheInSpace(loginToken,spaceId)
-                            logging.info("Completed Clearing Cache for space %s ",birst_space_name)
-                            return 0
-                            break
-                        else:
-                            if i==3:
-                                logging.error("Exceeded maximum retried for Birst Publish Data Status polling. Notifying User and Exiting system")
-                                return 1
-                                break
-                            else:
-                                logging.error("Retrying...")
-                                i=i+1
-                                time.sleep(15)
-                    break
                 sys.exit(1)
                 return 1
             if jobstatus == 'Complete': 
