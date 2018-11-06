@@ -12,7 +12,6 @@
 #                
 #*********************************************************************************************************************************
 
-import boto3            # S3 interaction
 import configparser     # Configuration file parser
 import datetime         # Enables date functions
 import fnmatch          # Text pattern matching
@@ -20,20 +19,14 @@ import io
 import logging          # Log file management
 import math
 import os               # system functions
-import paramiko         # SFTP to S3 transfer
-import pgpy             # Decryption package
-import pysftp           # SFTP connection 
 import re               # Regex functions
 import shutil           # File System functions (copy, remove file)
 import smtplib          # Email for notifications
 import stat
 import sys              # Exit and stdout functions
-import tarfile          # Unzip and extract archived and compressed files 
 import time             # Sleep function
-import botocore         # Exception handling for Boto3
 from datetime import datetime       # Date functions 
 from subprocess import Popen,PIPE   # Enables access to system commands. Spawn processes, connect to I/O or error pipes, get return codes
-from boto.s3.connection import S3Connection
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -419,33 +412,6 @@ class automation_controller(object):
                 logging.info("Processing...")
                 logging.info("Publishing Status: %s",str(client.service.getPublishingStatus(loginToken, publishToken)[0]))
                 time.sleep(birst_status_poll_timer) # status polling  every 1 minute
-
-    def file_transfer_local_s3(self,mft_trigger_timestamp):
-        #os.chdir(cwd) 
-        # Defining module variables
-        s3_bucket=self.s3_bucket
-        s3_root_dir=self.s3_root_dir
-        s3_load_control_filename=self.s3_load_control_filename
-        load_control_file_location= self.load_control_file_location
-        logging.info(" File transfer Started for file: %s",s3_load_control_filename)
-        s3 = boto3.resource('s3')   # Using resource() to invoke the s3 service resource from the default session
-        BUCKET = s3_bucket 
-        client = boto3.client('s3')
-        my_bucket = s3.Bucket(BUCKET)   # invoke the individual resource i.e, s3.Bucket
-        s3_dir=s3_root_dir+mft_trigger_timestamp+'/'   # target s3 directory
-        
-        try:
-            fulls3path=s3_dir+s3_load_control_filename
-            fulllocalpath=load_control_file_location
-            my_bucket.upload_file(fulllocalpath,fulls3path)
-            logging.info(" File transfer Complete for file: %s",s3_load_control_filename)
-            notify_email_msg='File transfer to S3 completed for file: '+s3_load_control_filename
-            self.notify_users(msgtype=notify_email_msg,attach='T',user_type='dev')
-        except Exception as e:
-                logging.error(e)
-                notify_email_msg='File transfer to S3 failed for file: '+s3_load_control_filename
-                self.notify_users(msgtype=notify_email_msg,attach='T',user_type='dev')
-                
 
 
     def orchestrator1(self,root_dir):
