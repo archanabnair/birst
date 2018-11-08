@@ -5,6 +5,8 @@ The birst_upload_process.py script achieves the following functionality:
 2. Triggers Birst Processing upon completion of file upload
 3. Notifies users upon completion of pipeline, with the execution log as attachment
 
+IMPORTANT NOTE:: Requires python 3.4+
+
 The following modifications need to be made in order to re-use the code: 
 
 I. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
