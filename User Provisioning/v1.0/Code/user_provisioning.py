@@ -138,7 +138,7 @@ if __name__ == "__main__":
     except Exception as e:
             logging.error(e)
         
-    #add_username='mkelly15'
+    #add_username
     password='foo'
     email='foo@bar.com'
     #add_as_admin='y'
