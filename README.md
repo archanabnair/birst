@@ -10,5 +10,6 @@ This project consists of a set of re-usable Python scripts which achieve the fol
 ## Contributors
 
 + Archana Balachandran (abalachandran@mycervello.com)
+
 For any questions or enhancement requests, feel free to create GitHub issues or you can reach out to me directly abalachandran@mycervello.com.
 
