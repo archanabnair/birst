@@ -64,7 +64,7 @@ class automation_controller(object):
             self.birst_password=config.get('connections.birst','password')
             self.birst_space=config.get('connections.birst','spaceID')
             self.birst_cmd_dir=config.get('connections.birst','cmd_dir')
-            self.birst_connect_task=config.get('connections.birst','birst_connect_task')
+            self.birst_connect_task=config.get('connections.birst','birst_connect_batch_filename')
             self.processingGroups=config.get('connections.birst','processingGroups')
 
             # Birst Batch Script
