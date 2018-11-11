@@ -1,4 +1,5 @@
 # Birst Upload and Processing
+project, define its purpose, and outline the basic functionality.
 
 The birst_upload_process.py script achieves the following functionality:
 1. Upload files from a local directory to Birst
