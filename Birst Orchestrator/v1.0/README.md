@@ -98,6 +98,5 @@ The program will create two logs in logs directory specified: one for the entire
 + sys               
 + time              
 + zeep             
-+ datetime 
 + subprocess 
 + email
