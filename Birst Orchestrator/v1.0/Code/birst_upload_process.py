@@ -287,7 +287,7 @@ class automation_controller(object):
         if platform == "linux" or platform == "linux2":
             logging.info("Operating System: Linux")
             batch_file_dir=self.BirstConnect_Home+'/'+self.birst_connect_task
-            self.birst_batch_file_creator_Lin(batch_file_dirk)
+            self.birst_batch_file_creator_Lin(batch_file_dir)
 
         
         #01. Run Birst Connect upload
