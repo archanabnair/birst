@@ -1,7 +1,13 @@
 
 ## Birst Orchestrator 
 
+The birst_upload_process.py script achieves the following functionality:
+1. Upload files from a local directory to Birst
+2. Triggers Birst Processing upon completion of file upload
+3. Notifies users upon completion of pipeline, with the execution log as attachment
+
 ### Pre-requisities
+
 |Requirement|Description|
 |:---                   |:---       |
 |Python| Requires python 3.4+|
@@ -9,13 +15,18 @@
 |Python packages|List provided in the documentation|
 |Birst|Birst Connect, Birst Space ID, Birst user credentials|
 
+### Directory Set up
+
+|File/Directory|Set-up|
+|:---                   |:---       |
+|birst_upload_process.py|Place python script in <root_dir>|
+|config_auth.ini|Place configuration file in <root_dir>|
+|BirstConnect|Manually create this directory in root_dir. Specify location in Config file.|
+|Logs|Automatically created by program|
+|BirstConnect/tasks.bat file|Automatically created by program. Verify information in Config file.|
+
 
 ### Usage
-
-The birst_upload_process.py script achieves the following functionality:
-1. Upload files from a local directory to Birst
-2. Triggers Birst Processing upon completion of file upload
-3. Notifies users upon completion of pipeline, with the execution log as attachment
 
 The following modifications need to be made in order to re-use the code: 
 
@@ -35,7 +46,7 @@ IV.  To run the program:
    
    1. Place birst_upload_process.py script into root_dir. Place config file in root_dir. 
    2. Open Command Line and navigate to root_dir using 'cd' command. 
-   3. In the terminal, type "python birst_upload_process.py <" and hit Enter. 
-    
+   3. In the terminal, type "python birst_upload_process.py <config_file_path>" and hit Enter. 
+ 
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
 
