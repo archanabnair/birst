@@ -1,12 +1,26 @@
 # Birst Upload and Processing
 project, define its purpose, and outline the basic functionality.
 
+This project consists of a set of re-usable Python scripts which achieve the following functionality:
+1. Upload data to Birst
+2. Process data in Birst
+3. Provision Users via Birst Web Services
+
+### Pre-requisities
+|Requirement|Description|
+|:---                   |:---       |
+|Python| Requires python 3.4+|
+|Code Editor|Notepad++/VS Code/PyCharm|
+|Python packages|List provided in the documentation|
+|Birst|Birst Connect, Birst Space ID, Birst user credentials|
+
+
+### Usage
+
 The birst_upload_process.py script achieves the following functionality:
 1. Upload files from a local directory to Birst
 2. Triggers Birst Processing upon completion of file upload
 3. Notifies users upon completion of pipeline, with the execution log as attachment
-
-IMPORTANT NOTE:: Requires python 3.4+
 
 The following modifications need to be made in order to re-use the code: 
 
@@ -37,13 +51,24 @@ V.  To run the program:
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
 
 
+### Versioning Scheme
+
+Scheme: Major.Minor.Patch version
+
+|Version Number Category|Description|
+|:---                   |:---       |
+|Major| Major change involves full release cycle|
+|Minor|Minor change involves addition of new feature or major behavior change|
+|Patch Version|Patch Version number increases when bug fixes are incorporated|
+
+### Contributors
+
++ Archana Balachandran (abalachandran@mycervello.com)
 For any questions or enhancement requests, contact abalachandran@mycervello.com.
 
+### Enhancement Requests : DJO
 
-
--- Enhancement Requests : DJO-- 
 Usecase: At DJO, there's a script for multiple spaces - therefore, need to maintain multiple .py and .ini files per space
-
-* Pass spacename as parameter to the pipeline. Use that for creating Birst log and for dynamically assigning config file name. 
-* Or pass config file as a parameter to the script. 
++ Pass spacename as parameter to the pipeline. Use that for creating Birst log and for dynamically assigning config file name. 
++ Or pass config file as a parameter to the script. 
 
