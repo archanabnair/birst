@@ -1,15 +1,3 @@
-#*********************************************************************************************************************************
-# Title: Pipeline orchestrator Script
-# Author: Archana Balachandran
-# Date: 2018-08-01
-#
-# Description: The script orchestrates the various activities in the data pipeline.
-#              The various pipeline activities include:
-#               1. Execute the Birst Connect JNLP tasks to upload the files to Birst
-#               2. Process Data in Birst
-#               3. Notify users upon pipeline completion
-#                
-#*********************************************************************************************************************************
 
 import configparser     # Configuration file parser
 import datetime         # Enables date functions
@@ -19,6 +7,7 @@ import os               # system functions
 import shutil           # File System functions (copy, remove file)
 import smtplib          # Email for notifications
 import sys              # Exit and stdout functions
+from sys import platform
 import time             # Sleep function
 import zeep             # Client interaction for Birst Web services
 from datetime import datetime       # Date functions 
@@ -275,19 +264,35 @@ class automation_controller(object):
             except Exception as e:
                 logging.error(e, exc_info=True)
             
-    def birst_batch_file_creator(self):
-        file = open("E://automation//testpipeline//testscript.bat","w") 
+    def birst_batch_file_creator_Win(self,batch_file_dir):
+        file = open(batch_file_dir,"w") 
         file.write("set JAVA_HOME="+self.JAVA_HOME+'\n')
         file.write("set BirstConnect_Home="+self.BirstConnect_Home+'\n'+'\n')
         file.write('\"%JAVA_HOME%\\bin\java\" -cp \"%BirstConnect_Home%\\dist\*;%BirstConnect_Home%\\dist\lib\*\" -Djnlp.file=\"%BirstConnect_Home%\\'+self.JNLP_name+'\" -Xmx1024m com.birst.dataconductor.DataConductorCommandLine -tasks '+self.JNLP_tasks)
     
+    def birst_batch_file_creator_Lin(self,batch_file_dir):
+        file = open(batch_file_dir,"w") 
+        file.write("#!/bin/bash"+"\n")
+        file.write("JAVA_HOME="+self.JAVA_HOME+'\n')
+        file.write("BirstConnect_Home="+self.BirstConnect_Home+'\n'+'\n')
+        file.write('$JAVA_HOME/java -cp \"$BirstConnect_Home/.:$BirstConnect_Home/dist/*:$BirstConnect_Home/dist/lib/*\" -Djnlp.file=\"$BirstConnect_Home/'+self.JNLP_name+'\" -Xmx1024m com.birst.dataconductor.DataConductorCommandLine -tasks '+self.JNLP_tasks)
+
     def orchestrator(self,root_dir):
         logging.info("Pipeline Started")
-        self.birst_batch_file_creator()
+        logging.info(platform)
+        if platform == 'win32':
+            logging.info("Operating System: Windows")
+            batch_file_dir=self.BirstConnect_Home+'\\'+self.birst_connect_task
+            self.birst_batch_file_creator_Win(batch_file_dir)
+        if platform == "linux" or platform == "linux2":
+            logging.info("Operating System: Linux")
+            batch_file_dir=self.BirstConnect_Home+'/'+self.birst_connect_task
+            self.birst_batch_file_creator_Lin(batch_file_dirk)
+
         
         #01. Run Birst Connect upload
         
-        self.birst_upload(self.BirstConnect_Home,self.birst_connect_batch_filename)
+        self.birst_upload(self.BirstConnect_Home,batch_file_dir)
                 
         #02. Kick off Birst Processing
         
@@ -315,5 +320,3 @@ if __name__ == "__main__":
     config_dir=sys.argv[1]
     pipeline_obj=automation_controller(config_dir)
     pipeline_obj.orchestrator(config_dir)
-
-
