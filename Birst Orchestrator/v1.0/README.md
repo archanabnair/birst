@@ -19,37 +19,37 @@ The birst_upload_process.py script achieves the following functionality:
 
 |File/Directory|Set-up|
 |:---                   |:---       |
-|birst_upload_process.py|Place python script in <root_dir>|
-|config_auth.ini|Place configuration file in <root_dir>|
-|BirstConnect|Manually create this directory in root_dir. Specify location in Config file.|
-|Logs|Automatically created by program|
-|BirstConnect/tasks.bat file|Automatically created by program. Verify information in Config file.|
+|<root_dir>/birst_upload_process.py|Place python script in <root_dir>|
+|<root_dir>/config_auth.ini|Place configuration file in <root_dir>|
+|<root_dir>/BirstConnect|Manually create this directory in root_dir. Specify location in Config file.|
+|<root_dir>/Logs|Automatically created by program|
+|<root_dir>/BirstConnect/tasks.bat file|Automatically created by program. Verify information in Config file.|
 
-
-### Usage
 
 The following modifications need to be made in order to re-use the code: 
 
-I. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
+I. Place the Python script in root directory.
+II. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
    1. Current Working Directory, Log file location
    2. Birst Space details (URL, SpaceID, Processing groups, BirstConnect directory)
    3. Sender and Recipient information for Email Notifications
    4. Birst Connect Batch File contents - verify/update parameters as required (jnlp name, task list, java home, birst connect home)
 
-II . Set up Birst Connect.
+III. Set up Birst Connect.
    1. Log in to the Birst Space to which the files need to be uploaded to. 
    2. Download the JNLP file and place in root_dir/BirstConnect folder
 
-III. Place the files to be uploaded in the directory referenced in the Birst Connect task. 
+IV. Place the files to be uploaded in the directory referenced in the Birst Connect task. 
 
-IV.  To run the program:
+### Usage
+
+To run the program:
    
-   1. Place birst_upload_process.py script into root_dir. Place config file in root_dir. 
-   2. Open Command Line and navigate to root_dir using 'cd' command. 
-   3. In the terminal, type the following and hit Enter:
+   1. Open Command Line and navigate to root_dir using 'cd' command. 
+   2. In the terminal, type the following and hit Enter:
   >**python birst_upload_process.py /path/to/config/file/config_auth.ini**
  
-The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
+The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email sent from the pipeline.
 
 ### Config File Contents
 
