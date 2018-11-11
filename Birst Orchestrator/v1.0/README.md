@@ -73,3 +73,20 @@ The program will create two logs in logs directory specified: one for the entire
 |connections.birst_connect|JAVA_HOME|Specify the JAVA location on the system|
 |connections.birst_connect|JNLP_name|Specify name of the JNLP file downloaded from the Birst space|
 |connections.birst_connect|JNLP_tasks|Specify the Birst Connect tasks to be run|
+
+
+### Required Python Packages
+
++ configparser    
++ datetime         
++ io
++ logging           
++ os                
++ shutil            
++ smtplib          
++ sys               
++ time              
++ zeep             
++ datetime 
++ subprocess 
++ email
