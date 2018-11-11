@@ -40,13 +40,15 @@ The birst_upload_process.py script achieves the following functionality:
 + Place the files to be uploaded to Birst in the directory referenced in Birst Connect tasks. 
 
 Once setup is complete, the contents of your directory will look like this:
+
+
 |File/Directory|
 |:---                   |
-|<root_dir>/birst_upload_process.py|
-|<root_dir>/config_auth.ini|
-|<root_dir>/setup.py|
-|<root_dir>/BirstConnect/<space_id.jnlp>|
-|<root_dir>/Logs|
+|<root_dir>/birst_upload_process.py||
+|<root_dir>/config_auth.ini||
+|<root_dir>/setup.py||
+|<root_dir>/BirstConnect/<space_id.jnlp>||
+|<root_dir>/Logs||
 
 
 
