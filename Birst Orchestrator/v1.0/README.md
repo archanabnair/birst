@@ -46,7 +46,8 @@ IV.  To run the program:
    
    1. Place birst_upload_process.py script into root_dir. Place config file in root_dir. 
    2. Open Command Line and navigate to root_dir using 'cd' command. 
-   3. In the terminal, type "python birst_upload_process.py /path/to/config/file/config_auth.ini" and hit Enter. 
+   3. In the terminal, type the following and hit Enter:
+  >**python birst_upload_process.py /path/to/config/file/config_auth.ini**
  
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
 
