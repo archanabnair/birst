@@ -34,7 +34,7 @@ from email.utils import COMMASPACE, formatdate
 class automation_controller(object):
     def __init__(self,config_dir):
         self.config_dir=config_dir
-        config_file_location=config_dir+'\\config_auth.ini'
+        config_file_location=config_dir
         try:
 
             #0 Configure Log File and variables 
