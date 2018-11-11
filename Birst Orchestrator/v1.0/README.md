@@ -28,7 +28,7 @@ The birst_upload_process.py script achieves the following functionality:
    
 3. Place the **setup.py** script in the folder dedicated for Automation. For example, C:/birstautomation/setup.py
 
-4. Run the script by double clicking **setup.py**. This installs all required Python modules and required directories. 
+4. Run the script by double clicking **setup.py**. This installs all required Python modules and required directories. You can check the log for setup in logs directory, with the filename **setup_<timestamp>.log**
 
 5. Place the **birst_upload_process.py** script and **config_auth.ini** file in the folder **C:/birstautomation/**
 
