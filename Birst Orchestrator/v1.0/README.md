@@ -39,13 +39,14 @@ The birst_upload_process.py script achieves the following functionality:
 + Download the JNLP file and place in **C:/birstautomation/BirstConnect** folder
 + Place the files to be uploaded to Birst in the directory referenced in Birst Connect tasks. 
 
-|File/Directory|Set-up|
-|:---                   |:---       |
-|<root_dir>/birst_upload_process.py|Place python script in <root_dir>|
-|<root_dir>/config_auth.ini|Place configuration file in <root_dir>|
-|<root_dir>/BirstConnect|Manually create this directory in root_dir. Specify location in Config file.|
-|<root_dir>/Logs|Automatically created by program|
-|<root_dir>/BirstConnect/tasks.bat file|Automatically created by program. Verify information in Config file.|
+Once setup is complete, the contents of your directory will look like this:
+|File/Directory|
+|:---                   |
+|<root_dir>/birst_upload_process.py|
+|<root_dir>/config_auth.ini|
+|<root_dir>/setup.py|
+|<root_dir>/BirstConnect/<space_id.jnlp>|
+|<root_dir>/Logs|
 
 
 
