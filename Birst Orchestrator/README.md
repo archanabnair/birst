@@ -1,6 +1,8 @@
-### Enhancement Requests : DJO
+### Birst Orchestrator
 
-Usecase: At DJO, there's a script for multiple spaces - therefore, need to maintain multiple .py and .ini files per space
-+ Pass spacename as parameter to the pipeline. Use that for creating Birst log and for dynamically assigning config file name. 
-+ Or pass config file as a parameter to the script. 
+Birst Orchestrator script enables users to upload data to Birst and trigger space processing. 
+Currently, there are 2 versions available. 
+* v1.0 (Stable version)
+* v2.0 (Beta)
 
+Each version is available in its own folder, along with its usage documentation. 
