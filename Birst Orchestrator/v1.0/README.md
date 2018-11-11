@@ -10,12 +10,34 @@ The birst_upload_process.py script achieves the following functionality:
 
 |Requirement|Description|
 |:---                   |:---       |
+|OS|Windows / Linux|
 |Python| Requires python 3.4+|
-|Code Editor|Notepad++/VS Code/PyCharm|
-|Python packages|List provided in the documentation|
-|Birst|Birst Connect, Birst Space ID, Birst user credentials|
+|Text Editor to modify Configuration file|Notepad++/Notepad/Wordpad|
+|Birst|Birst Connect JNLP|
 
 ### Set up
+
+
+1. Check Python Version: Open Command window and type: 
+   >**python --version**
+   
+   If version < 3.6, download the preferred version from https://www.python.org/downloads/release/python-370/
+   
+2. Check if Pip version is up-to-date: Open Command window and type:
+   >**python -m pip install --upgrade pip**
+   
+3. Place the **setup.py** script in the folder dedicated for Automation. For example, C:/birstautomation/setup.py
+
+4. Run the script by double clicking **setup.py**. This installs all required Python modules and required directories. 
+
+5. Place the **birst_upload_process.py** script and **config_auth.ini** file in the folder **C:/birstautomation/**
+
+6. Open config_auth.ini and modify details as per your requirement. Detailed explanation on each parameter is below. 
+
+7. Set up Birst Connect:
++ Log in to the Birst Space to which the files need to be uploaded to. 
++ Download the JNLP file and place in **C:/birstautomation/BirstConnect** folder
++ Place the files to be uploaded to Birst in the directory referenced in Birst Connect tasks. 
 
 |File/Directory|Set-up|
 |:---                   |:---       |
@@ -26,17 +48,6 @@ The birst_upload_process.py script achieves the following functionality:
 |<root_dir>/BirstConnect/tasks.bat file|Automatically created by program. Verify information in Config file.|
 
 
-The following modifications need to be made in order to re-use the code: 
-
-I. Place the Python script in root directory.
-
-II. Place the config_auth.ini file in root directory. Open config_auth.ini and modify details as per your requirement. Detailed explanation on each parameter is below. 
-
-III. Set up Birst Connect.
-   1. Log in to the Birst Space to which the files need to be uploaded to. 
-   2. Download the JNLP file and place in root_dir/BirstConnect folder
-
-IV. Place the files to be uploaded in the directory referenced in the Birst Connect task. 
 
 ### Usage
 
@@ -44,7 +55,7 @@ To run the program:
    
    1. Open Command Line and navigate to root_dir using 'cd' command. 
    2. In the terminal, type the following and hit Enter:
-  >**python birst_upload_process.py /path/to/config/file/config_auth.ini**
+  >**python birst_upload_process.py C:/birstautomation/config_auth.ini**
  
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email sent from the pipeline.
 
@@ -72,7 +83,7 @@ The program will create two logs in logs directory specified: one for the entire
 |connections.birst_connect|JNLP_tasks|Specify the Birst Connect tasks to be run|
 
 
-### Required Python Packages
+### Required Python Packages (installed by Setup.py)
 
 + configparser    
 + datetime         
