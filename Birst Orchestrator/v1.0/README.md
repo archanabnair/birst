@@ -15,7 +15,7 @@ The birst_upload_process.py script achieves the following functionality:
 |Python packages|List provided in the documentation|
 |Birst|Birst Connect, Birst Space ID, Birst user credentials|
 
-### Directory Set up
+### Set up
 
 |File/Directory|Set-up|
 |:---                   |:---       |
