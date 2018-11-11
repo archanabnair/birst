@@ -19,7 +19,11 @@ The birst_upload_process.py script achieves the following functionality:
 
 
 1. Check Python Version: Open Command window and type: 
+   In Windows:
    >**python --version**
+   
+   In Linux:
+   > **$ ls /usr/bin/python***
    
    If version < 3.6, download the preferred version from https://www.python.org/downloads/release/python-370/
    
@@ -57,8 +61,14 @@ Once setup is complete, the contents of your directory will look like this:
 To run the program:
    
    1. Open Command Line and navigate to root_dir using 'cd' command. 
+   > Windows: cd C:/birstautomation
+   
+   >   Linux: cd ~/birstautomation
+   
    2. In the terminal, type the following and hit Enter:
-  >**python birst_upload_process.py C:/birstautomation/config_auth.ini**
+  > Windows: **python birst_upload_process.py C:/birstautomation/config_auth.ini**
+  
+  > Linux: **python ./birst_upload_process.py ~/birstautomation/config_auth.ini**  
  
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email sent from the pipeline.
 
