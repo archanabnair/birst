@@ -63,15 +63,15 @@ class automation_controller(object):
             self.birst_username=config.get('connections.birst','username')
             self.birst_password=config.get('connections.birst','password')
             self.birst_space=config.get('connections.birst','spaceID')
-            self.birst_cmd_dir=config.get('connections.birst','cmd_dir')
-            self.birst_connect_task=config.get('connections.birst','birst_connect_batch_filename')
             self.processingGroups=config.get('connections.birst','processingGroups')
 
             # Birst Batch Script
-            self.JAVA_HOME=config.get('script.birst_batch_file','JAVA_HOME')
-            self.BirstConnect_Home=config.get('script.birst_batch_file','BirstConnect_Home')
-            self.JNLP_name=config.get('script.birst_batch_file','JNLP_name')
-            self.JNLP_tasks=config.get('script.birst_batch_file','JNLP_tasks')
+            self.birst_connect_task=config.get('connections.birst_connect','birst_connect_task')
+            #self.birst_connect_batch_filename=config.get('connections.birst_connect','BirstConnect_Home')
+            self.JAVA_HOME=config.get('connections.birst_connect','JAVA_HOME')
+            self.BirstConnect_Home=config.get('connections.birst_connect','BirstConnect_Home')
+            self.JNLP_name=config.get('connections.birst_connect','JNLP_name')
+            self.JNLP_tasks=config.get('connections.birst_connect','JNLP_tasks')
 
 
         except configparser.NoSectionError as se:
@@ -181,7 +181,7 @@ class automation_controller(object):
             os.chdir(dir)
             now = datetime.now()
             str_now=now.strftime("%Y-%m-%d_%H-%M-%S")
-            birst_log=open(self.log_file_location+str_now+'.log', 'w')
+            birst_log=open(self.log_file_location+'/birst_'+str_now+'.log', 'w')
             try:
                 p = Popen(cmd_file,stdout=birst_log)    # open a batch file
                 p.communicate()[0]                      # process.communicate starts polling the subprocess for a status 
@@ -287,7 +287,7 @@ class automation_controller(object):
         
         #01. Run Birst Connect upload
         
-        self.birst_upload(self.birst_cmd_dir,self.birst_connect_task)
+        self.birst_upload(self.BirstConnect_Home,self.birst_connect_batch_filename)
                 
         #02. Kick off Birst Processing
         
@@ -315,3 +315,5 @@ if __name__ == "__main__":
     config_dir=sys.argv[1]
     pipeline_obj=automation_controller(config_dir)
     pipeline_obj.orchestrator(config_dir)
+
+
