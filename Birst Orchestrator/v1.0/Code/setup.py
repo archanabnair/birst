@@ -17,7 +17,7 @@ def log_file_init(supplied_path):
 		print("creating log file name")
 		now = datetime.now()
 		str_now=now.strftime("%Y-%m-%d_%H-%M-%S")
-		file_name='log_'+str_now+'.log'
+		file_name='setup_log_'+str_now+'.log'
 
 		# Configuring the log file
 		logging.basicConfig(
