@@ -30,11 +30,7 @@ The following modifications need to be made in order to re-use the code:
 
 I. Place the Python script in root directory.
 
-II. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
-   1. Current Working Directory, Log file location
-   2. Birst Space details (URL, SpaceID, Processing groups, BirstConnect directory)
-   3. Sender and Recipient information for Email Notifications
-   4. Birst Connect Batch File contents - verify/update parameters as required (jnlp name, task list, java home, birst connect home)
+II. Place the config_auth.ini file in root directory. Open config_auth.ini and modify details as per your requirement. Detailed explanation on each parameter is below. 
 
 III. Set up Birst Connect.
    1. Log in to the Birst Space to which the files need to be uploaded to. 
