@@ -29,6 +29,7 @@ The birst_upload_process.py script achieves the following functionality:
 The following modifications need to be made in order to re-use the code: 
 
 I. Place the Python script in root directory.
+
 II. Place the config_auth.ini file in root directory. Open config_auth.ini and specify:
    1. Current Working Directory, Log file location
    2. Birst Space details (URL, SpaceID, Processing groups, BirstConnect directory)
