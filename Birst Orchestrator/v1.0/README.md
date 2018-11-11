@@ -46,7 +46,29 @@ IV.  To run the program:
    
    1. Place birst_upload_process.py script into root_dir. Place config file in root_dir. 
    2. Open Command Line and navigate to root_dir using 'cd' command. 
-   3. In the terminal, type "python birst_upload_process.py <config_file_path>" and hit Enter. 
+   3. In the terminal, type "python birst_upload_process.py /path/to/config/file/config_auth.ini" and hit Enter. 
  
 The program will create two logs in logs directory specified: one for the entire pipeline, and one specifically for Birst Connect Upload task. The log for the pipeline will also be attached in the Notification email send from the pipeline.
 
+### Config File Contents
+
+|Section|Option|Description|
+|:---                   |:---       |:---       |
+|default|cwd|Specify Current Working Directory (or root_dir containing the Python script, config file, BirstConnect folder)|
+|default|log_file|Specify the desired location for maintaining Log files|
+|notify|sender_email|Specify the email address of person sending the email notifications from pipeline|
+|notify|sender_password|Specify the email password of person sending the email notifications from pipeline|
+|notify|recipient_email|Specify the email address of recipient(s) of the email notifications from pipeline. Comma-separated list.|
+|notify|smtp_host|Specify SMTP host server details|
+|notify|smtp_port|Specify SMTP port details|
+|connections.birst|url|Birst URL. Ensure to append '/CommandWebService.asmx?wsdl' as suffix|
+|connections.birst|username|Specify Birst username for user who will be executing the Processing in Birst|
+|connections.birst|password|Specify Birst password for user who will be executing the Processing in Birst|
+|connections.birst|spacename|Specify space name (You can find this in Modify Properties in Birst)|
+|connections.birst|spaceID|Specify space ID (You can find this in Modify Properties in Birst)|
+|connections.birst|processingGroups|Specify Processing groups to be run in Birst. If multiple processing groups need to be processed, specify as a comma separated string. They will be processed in alphabetical/numerical order.|
+|connections.birst_connect|BirstConnect_Home|Specify directory containing the JNLP file downloaded from the Birst space|
+|connections.birst_connect|birst_connect_batch_filename|Specify the desired name to be given to the Batch file containing the Birst Connect tasks|
+|connections.birst_connect|JAVA_HOME|Specify the JAVA location on the system|
+|connections.birst_connect|JNLP_name|Specify name of the JNLP file downloaded from the Birst space|
+|connections.birst_connect|JNLP_tasks|Specify the Birst Connect tasks to be run|
